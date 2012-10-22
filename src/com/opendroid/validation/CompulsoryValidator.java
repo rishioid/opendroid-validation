@@ -7,9 +7,11 @@ import android.widget.EditText;
 
 public class CompulsoryValidator extends Validator {
 
+	SparseBooleanArray valid;
+
 	@Override
-	public SparseBooleanArray validate() {
-		SparseBooleanArray valid = new SparseBooleanArray();
+	public boolean validate() {
+		valid = new SparseBooleanArray();
 
 		int index = 0;
 
@@ -35,7 +37,20 @@ public class CompulsoryValidator extends Validator {
 			index++;
 		}
 
+		return isValid();
+	}
+
+	public SparseBooleanArray getResult() {
 		return valid;
+	}
+
+	private boolean isValid() {
+		for (int i = 0; i < valid.size(); i++) {
+			if (!valid.get(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
