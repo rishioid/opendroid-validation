@@ -1,5 +1,6 @@
 package com.opendroid.validation;
 
+import android.graphics.Color;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.CheckBox;
@@ -20,9 +21,13 @@ public class CompulsoryValidator extends Validator {
 				EditText txt = (EditText) view;
 				if (txt != null
 						&& txt.getText().toString().trim().length() == 0) {
+					if (highlight) {
+						txt.setBackgroundColor(Color.parseColor("#FF9999"));
+					}
 					valid.put(index, false);
 				} else {
 					valid.put(index, true);
+					txt.setBackgroundColor(Color.TRANSPARENT);
 				}
 			} else if (view instanceof CheckBox) {
 				CheckBox chk = (CheckBox) view;

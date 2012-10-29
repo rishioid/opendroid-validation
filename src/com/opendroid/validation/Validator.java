@@ -15,7 +15,9 @@ import android.view.View;
  * @author Rishi K
  */
 public abstract class Validator {
-
+	
+	boolean highlight = false; 
+	private String errorMessage;
 	protected List<View> list;
 
 	/**
@@ -46,6 +48,11 @@ public abstract class Validator {
 			list.add(vi);
 		}
 	}
+	
+	public void highlightControl(boolean highlight)
+	{
+		this.highlight = highlight;
+	}
 
 	/**
 	 * validates list of views.
@@ -55,5 +62,13 @@ public abstract class Validator {
 	public abstract boolean validate();
 	
 	public abstract SparseBooleanArray getResult();
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
 
 }
