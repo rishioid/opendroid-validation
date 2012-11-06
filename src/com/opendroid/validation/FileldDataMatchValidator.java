@@ -28,6 +28,7 @@ public class FileldDataMatchValidator extends Validator {
 		for (View view : list) {
 			if (view instanceof EditText) {
 				EditText txt = (EditText) view;
+				valueList.add(txt.getText()+"");
 				if (index > 0) {
 					if (txt != null
 							&& !txt.getText().toString().trim().equals(list.get(index-1))) {
