@@ -6,10 +6,17 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CompulsoryValidator.
+ */
 public class CompulsoryValidator extends Validator {
 
 	SparseBooleanArray valid;
 
+	/* (non-Javadoc)
+	 * @see com.opendroid.validation.Validator#validate()
+	 */
 	@Override
 	public boolean validate() {
 		valid = new SparseBooleanArray();
@@ -45,10 +52,18 @@ public class CompulsoryValidator extends Validator {
 		return isValid();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.opendroid.validation.Validator#getResult()
+	 */
 	public SparseBooleanArray getResult() {
 		return valid;
 	}
 
+	/**
+	 * Checks if is valid.
+	 *
+	 * @return true, if is valid
+	 */
 	private boolean isValid() {
 		for (int i = 0; i < valid.size(); i++) {
 			if (!valid.get(i)) {
