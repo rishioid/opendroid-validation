@@ -38,7 +38,7 @@ public class CompulsoryValidator extends Validator {
 				}
 			} else if (view instanceof CheckBox) {
 				CheckBox chk = (CheckBox) view;
-				if (chk != null && chk.isChecked()) {
+				if (chk != null && !chk.isChecked()) {
 					valid.put(index, false);
 				} else {
 					valid.put(index, true);
